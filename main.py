@@ -109,45 +109,45 @@ X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=0.
 # plt.show()
 
 # logistic_classifier
-# train_accuracies = []
-# test_accuracies = []
-# cs = [0, 0.1, 1, 10, 50]
-# for c in cs:
-#     if c == 0:
-#         classifier = LogisticRegression(penalty=None, fit_intercept=True)
-#     else:
-#         classifier = LogisticRegression(penalty='l1', C=c, solver='liblinear', fit_intercept=True)
-#     classifier.fit(X_train, y_train)
-#     train_accuracies.append(classifier.score(X_train, y_train))
-#     test_accuracies.append(classifier.score(X_val, y_val))
-# fig, axes = plt.subplots()
-# axes.semilogx(cs, train_accuracies, color='red', label='training accuracy')
-# axes.semilogx(cs, test_accuracies, color='blue', label='testing accuracy')
-# axes.set_xlabel('regulaization strength', fontsize=14)
-# axes.set_ylabel('accuracy', fontsize=14)
-# axes.legend()
+train_accuracies = []
+test_accuracies = []
+cs = [0, 0.1, 1, 10, 50]
+for c in cs:
+    if c == 0:
+        classifier = LogisticRegression(penalty=None, fit_intercept=True)
+    else:
+        classifier = LogisticRegression(penalty='l1', C=c, solver='liblinear', fit_intercept=True)
+    classifier.fit(X_train, y_train)
+    train_accuracies.append(classifier.score(X_train, y_train))
+    test_accuracies.append(classifier.score(X_val, y_val))
+fig, axes = plt.subplots()
+axes.semilogx(cs, train_accuracies, color='red', label='training accuracy')
+axes.semilogx(cs, test_accuracies, color='blue', label='testing accuracy')
+axes.set_xlabel('regulaization strength', fontsize=14)
+axes.set_ylabel('accuracy', fontsize=14)
+axes.legend()
 
 # neural network
-train_accuracies = []
-val_accuracies = []
-learning_rates = [.001, .0025, .005, .0075, .01]
-for learning_rate in learning_rates:
-    mlp_model = MLPClassifier(hidden_layer_sizes=(64,), activation='relu', solver='sgd', learning_rate_init=learning_rate, batch_size=256, random_state=42)
-    mlp_model.fit(X_train, y_train)
-    mlp_train_pred = mlp_model.predict(X_train)
-    mlp_val_pred = mlp_model.predict(X_val)
-    mlp_train_acc = accuracy_score(y_train, mlp_train_pred)
-    mlp_val_acc = accuracy_score(y_val, mlp_val_pred)
-    train_accuracies.append(mlp_train_acc)
-    val_accuracies.append(mlp_val_acc)
-plt.plot(learning_rates, train_accuracies, marker='o', label='Training Accuracy')
-plt.plot(learning_rates, val_accuracies, marker='o', label='Validation Accuracy')
-plt.xlabel('Learning Rate')
-plt.ylabel('Accuracy')
-plt.title('Accuracy vs. Learning Rate')
-plt.legend()
-plt.grid(True)
-plt.show()
+# train_accuracies = []
+# val_accuracies = []
+# learning_rates = [.001, .0025, .005, .0075, .01]
+# for learning_rate in learning_rates:
+#     mlp_model = MLPClassifier(hidden_layer_sizes=(64,), activation='relu', solver='sgd', learning_rate_init=learning_rate, batch_size=256, random_state=42)
+#     mlp_model.fit(X_train, y_train)
+#     mlp_train_pred = mlp_model.predict(X_train)
+#     mlp_val_pred = mlp_model.predict(X_val)
+#     mlp_train_acc = accuracy_score(y_train, mlp_train_pred)
+#     mlp_val_acc = accuracy_score(y_val, mlp_val_pred)
+#     train_accuracies.append(mlp_train_acc)
+#     val_accuracies.append(mlp_val_acc)
+# plt.plot(learning_rates, train_accuracies, marker='o', label='Training Accuracy')
+# plt.plot(learning_rates, val_accuracies, marker='o', label='Validation Accuracy')
+# plt.xlabel('Learning Rate')
+# plt.ylabel('Accuracy')
+# plt.title('Accuracy vs. Learning Rate')
+# plt.legend()
+# plt.grid(True)
+# plt.show()
 
 # random forest
 # n_estimators_values = [10, 50, 100, 150, 200]
