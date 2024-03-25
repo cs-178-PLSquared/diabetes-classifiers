@@ -3,12 +3,16 @@
 ## Repository Structure
 
 ### 1. Model Hyperparameter Selection Notebooks
+
 KNN:
 `knn_parameter_tests.ipynb`
+
 Feedforward Neural Network:
 `nn_parameter_tests.ipynb`
+
 Logistic Regression Classifier:
 `logistic_parameter_tests.ipynb`
+
 Random Forest:
 `rf_parameter_tests.ipynb`
 
