@@ -29,8 +29,10 @@ Random Forest:
 `pip install -r requirements.txt`
 
 ### Activate Environment
+
 Windows:
 `./env/Scripts/activate`
+
 UNIX:
 `source env/bin/activate`
 
