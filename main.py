@@ -195,10 +195,10 @@ X_train, y_train = smote.fit_resample(X_train, y_train)
 # rf_classifier.fit(X_train, y_train)
 # y_pred = rf_classifier.predict(X_test)
 # y_pred_prob = rf_classifier.predict_proba(X_test)[:, 1]
-# test_acc = accuracy_score(y_test, y_pred)
-# test_pre = precision_score(y_test, y_pred)
-# test_rec = recall_score(y_test, y_pred)
-# test_auc = roc_auc_score(y_test, y_pred_prob)
+test_acc = accuracy_score(y_test, y_pred)
+test_pre = precision_score(y_test, y_pred)
+test_rec = recall_score(y_test, y_pred)
+test_auc = roc_auc_score(y_test, y_pred_prob)
 # print(f"Test Accuracy: {test_acc}\nTest Precision: {test_pre}\nTest Recall: {test_rec}\nTest AUC: {test_auc}")
 
 # param_grid = {
@@ -207,7 +207,7 @@ X_train, y_train = smote.fit_resample(X_train, y_train)
 #     'min_samples_split': [2, 4, 6, 8], # Minimum number of samples required to split an internal node
 #     'min_samples_leaf': [1, 2, 4, 8]   # Minimum number of samples required to be at a leaf node
 # }
-#
+
 # rf_classifier = RandomForestClassifier(random_state=42)
 # grid_search = GridSearchCV(estimator=rf_classifier, param_grid=param_grid, cv=5, scoring='accuracy')
 # grid_search.fit(X_train, y_train)
@@ -222,22 +222,22 @@ X_train, y_train = smote.fit_resample(X_train, y_train)
 #                                         min_samples_split=2, # Adjust min_samples_split
 #                                         min_samples_leaf=1,  # Adjust min_samples_leaf
 #                                         random_state=42)
-#
+
 # cv_scores = cross_val_score(rf_classifier, X_train, y_train, cv=5)
 # print("Cross-Validation Scores:", cv_scores)
 # mean_cv_score = np.mean(cv_scores)
 # print("Mean Cross-Validation Score:", mean_cv_score)
-#
+
 # plt.figure(figsize=(5, 4))
 # y_pred = rf_classifier.predict(X_test)
 # print(accuracy_score(y_test, y_pred))
 # cm = confusion_matrix(y_test, y_pred)
-#
+
 # conf_matrix = pd.DataFrame(data=cm, columns=['Predicted:0', 'Predicted:1'], index=['Actual:0', 'Actual:1'])
-#
+
 # sns.heatmap(conf_matrix, annot=True, fmt='d', cmap=['Green'], cbar=False,
 #             linewidths=0.1, annot_kws={'size': 16})
-#
+
 # plt.xticks(fontsize=10)
 # plt.yticks(fontsize=10)
 # plt.show()
